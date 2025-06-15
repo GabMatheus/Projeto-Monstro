@@ -3,9 +3,8 @@
 
 Aplicação web completa para gerenciamento de rotinas de **treino** e **dieta**, com persistência de dados no navegador (LocalStorage). Simples, prática e eficiente.
 
-![Screenshots](screenshots.png)  
-<sub>*(Adicione aqui imagens ilustrativas das telas do sistema)*</sub>
-
+![Screenshots](screenshot.png)  
+![Screenshots](screenshot2.png)  
 ---
 
 ## 🔥 Funcionalidades
