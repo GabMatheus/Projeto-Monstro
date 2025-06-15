@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projeto Monstro - Acesso</title>
+  <title>Projeto Monstro - Login</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="login-page">
@@ -22,13 +22,13 @@
       const password = document.getElementById('password').value;
       const message = document.getElementById('message');
       
-      if (password === "121314") {
+      if (password === "2306") {
         message.textContent = "Acesso concedido! Redirecionando...";
         message.style.color = "green";
-        // Aqui você pode redirecionar para outra página ou mostrar os dados
-        setTimeout(() => {
-          window.location.href = "menu.html"; // ou outra ação
-        }, 1500);
+        // Armazena o acesso permitido
+        sessionStorage.setItem('auth', 'true');
+        // Redireciona usando método compatível com GitHub Pages
+        window.location.href = 'menu.html';
       } else {
         message.textContent = "Senha incorreta! Tente novamente.";
         message.style.color = "red";
@@ -41,6 +41,11 @@
         document.getElementById('btn-login').click();
       }
     });
+
+    // Verifica se já está autenticado
+    if (sessionStorage.getItem('auth') === 'true') {
+      window.location.href = 'menu.html';
+    }
   </script>
 </body>
 </html>
