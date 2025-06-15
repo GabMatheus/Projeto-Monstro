@@ -1,0 +1,653 @@
+/* =============================================
+  VARIÁVEIS E RESET
+============================================= */
+:root {
+  /* Cores principais */
+  --color-primary: #4361ee;
+  --color-secondary: #3f37c9;
+  --color-accent: #4895ef;
+  --color-success: #4cc9f0;
+  --color-warning: #f8961e;
+  --color-danger: #f94144;
+  
+  /* Cores de fundo */
+  --color-dark: #1a1a2e;
+  --color-mid: #16213e;
+  --color-light: #0f3460;
+  --color-bg: #121212;
+  
+  /* Cores de texto */
+  --color-text: #e2e2e2;
+  --color-text-light: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.7);
+  
+  /* Bordas */
+  --border-radius: 8px;
+  --border-radius-lg: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* =============================================
+  LAYOUT GERAL
+============================================= */
+header {
+  text-align: center;
+  padding: 1.5rem 2rem;
+  background: var(--color-dark);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* =============================================
+  COMPONENTES COMUNS
+============================================= */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  margin: 0.5rem;
+  min-width: 200px;
+  gap: 0.5rem;
+}
+
+.button-primary {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: 0 4px 14px rgba(67, 97, 238, 0.4);
+}
+
+.button-primary:hover {
+  background: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(67, 97, 238, 0.6);
+}
+
+.button-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-light);
+}
+
+.button-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+}
+
+.back-button {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* =============================================
+  PÁGINA DE LOGIN
+============================================= */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--color-dark), var(--color-mid));
+}
+
+.login-box {
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-box h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.login-input {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--border-radius);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* =============================================
+  PÁGINA DE MENU
+============================================= */
+.menu-page {
+  text-align: center;
+}
+
+.user-name {
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.menu-option {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-option:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.menu-option h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.day-selector {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 2rem 0;
+}
+
+.day-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+/* Cores específicas para cada dia */
+.day-btn[data-day="1"] { background: #ff6b6b; color: white; }
+.day-btn[data-day="2"] { background: #4d96ff; color: white; }
+.day-btn[data-day="3"] { background: #6bc77d; color: white; }
+.day-btn[data-day="4"] { background: #a855f7; color: white; }
+.day-btn[data-day="5"] { background: #ffa502; color: white; }
+
+.day-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.today-workout {
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 10px rgba(76, 201, 240, 0.7);
+}
+
+/* =============================================
+  PÁGINA DE TREINO
+============================================= */
+.workout-content {
+  text-align: center;
+}
+
+.workout-day h2 {
+  color: white;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.workout-list {
+  list-style: none;
+  text-align: left;
+  margin: 2rem 0;
+}
+
+.workout-item {
+  padding: 1rem;
+  margin: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  gap: 1rem;
+}
+
+.workout-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.workout-checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.workout-notes {
+  background: rgba(72, 149, 239, 0.1);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-top: 2rem;
+  border-left: 4px solid var(--color-accent);
+}
+
+/* =============================================
+  PÁGINA DE DIETA
+============================================= */
+.diet-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.diet-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.calendar-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+.current-day-info {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  min-width: 200px;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.info-text {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+}
+
+.day-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+}
+
+.diet-type-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.carbo-high {
+  background: var(--color-warning);
+  color: var(--color-dark);
+}
+
+.carbo-low {
+  background: var(--color-primary);
+  color: white;
+}
+
+.week-days {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.day-selector {
+  padding: 0.8rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+  flex: 1;
+  min-width: 60px;
+}
+
+.day-selector.normal-day {
+  background: rgba(67, 97, 238, 0.1);
+  border: 1px solid var(--color-primary);
+}
+
+.day-selector.carbo-day {
+  background: rgba(244, 162, 97, 0.2);
+  border: 1px solid var(--color-warning);
+}
+
+.day-selector.selected {
+  background: var(--color-primary);
+  color: white;
+  font-weight: bold;
+}
+
+.day-selector.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.diet-container {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.diet-tabs {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.diet-tab {
+  padding: 0.8rem 1.5rem;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.diet-tab.active {
+  opacity: 1;
+  color: var(--color-accent);
+}
+
+.diet-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 3px 3px 0 0;
+}
+
+.diet-content {
+  display: none;
+}
+
+.diet-content.active {
+  display: block;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.diet-title {
+  margin-bottom: 1.5rem;
+  color: var(--color-accent);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.meal-section {
+  margin-bottom: 2rem;
+}
+
+.meal-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.meal-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.meal-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.meal-icon {
+  font-size: 1.5rem;
+}
+
+.meal-time {
+  font-weight: 600;
+  color: var(--color-accent);
+  font-size: 1.1rem;
+}
+
+.meal-items {
+  list-style: none;
+  padding-left: 2.5rem;
+}
+
+.meal-items li {
+  margin-bottom: 0.8rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.meal-items li::before {
+  content: '•';
+  color: var(--color-accent);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1.5em;
+  position: absolute;
+}
+
+.meal-options {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  color: var(--color-text-muted);
+}
+
+.options-title {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.options-list {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.options-list li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.options-list li::before {
+  content: '◦';
+  position: absolute;
+  left: -1rem;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* =============================================
+  ANIMAÇÕES
+============================================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.workout-day,
+.menu-option {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.menu-option:nth-child(1) { animation-delay: 0.1s; }
+.menu-option:nth-child(2) { animation-delay: 0.2s; }
+.menu-option:nth-child(3) { animation-delay: 0.3s; }
+.menu-option:nth-child(4) { animation-delay: 0.4s; }
+
+/* =============================================
+  RESPONSIVIDADE
+============================================= */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+  
+  .back-button {
+    position: static;
+    transform: none;
+    margin-bottom: 1rem;
+    justify-content: center;
+  }
+  
+  .diet-controls {
+    flex-direction: column;
+  }
+  
+  .current-day-info {
+    width: 100%;
+  }
+  
+  .diet-tabs {
+    flex-direction: column;
+  }
+  
+  .diet-tab {
+    justify-content: center;
+  }
+  
+  .diet-tab.active::after {
+    width: 100%;
+    height: 3px;
+    bottom: -1px;
+    left: 0;
+  }
+  
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .button {
+    min-width: 160px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .week-days {
+    flex-direction: column;
+  }
+  
+  .day-selector {
+    width: 100%;
+  }
+  
+  .workout-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .action-buttons .button {
+    width: 100%;
+  }
+}

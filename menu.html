@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projeto Monstro - Menu</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="menu-page">
+  <header>
+    <h1>Projeto Monstro</h1>
+    <p>Olá, <span id="user-name"></span>! O que deseja acessar?</p>
+  </header>
+
+  <main class="menu-screen">
+    <div class="menu-option" id="diet-box" data-target="diet.html">
+      <h2>Dieta</h2>
+      <p>Gerencie sua alimentação</p>
+    </div>
+    
+    <div class="menu-option" id="workout-box">
+      <h2>Treino</h2>
+      <p>Selecione o dia do treino</p>
+      <div class="day-selector">
+        <button class="day-btn" data-day="1">Dia 1</button>
+        <button class="day-btn" data-day="2">Dia 2</button>
+        <button class="day-btn" data-day="3">Dia 3</button>
+        <button class="day-btn" data-day="4">Dia 4</button>
+        <button class="day-btn" data-day="5">Dia 5</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

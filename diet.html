@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plano de Dieta - Gabs</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="diet-page">
+  <header>
+    <button id="btn-back" class="back-button">← Voltar</button>
+    <h1>🔥 Plano de Dieta e Treino - Gabs</h1>
+  </header>
+
+  <main>
+    <section class="diet-controls">
+      <div class="calendar-container">
+        <h3 class="section-title">📅 Configuração Semanal</h3>
+        <p class="section-subtitle">Selecione seu dia de Carbo Alto (1x/semana)</p>
+        <div class="week-days">
+          <!-- Dias serão preenchidos pelo JavaScript -->
+        </div>
+        <p class="info-text">Dias não selecionados serão automaticamente Carbo Baixo</p>
+      </div>
+
+      <div class="current-day-info">
+        <h3 class="section-title">📌 Hoje</h3>
+        <div class="day-display">
+          <span id="current-day-name">--</span>
+          <span id="current-diet-type" class="diet-type-badge">--</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="diet-container">
+      <div class="diet-tabs">
+        <button class="diet-tab active" data-tab="high-carb">
+          <span class="tab-icon">🍚</span> Carbo Alto
+        </button>
+        <button class="diet-tab" data-tab="low-carb">
+          <span class="tab-icon">🥦</span> Carbo Baixo
+        </button>
+      </div>
+
+      <!-- Dieta Carbo Alto -->
+      <div id="high-carb" class="diet-content active">
+        <h2 class="diet-title">Plano de Dieta - Carbo Alto</h2>
+        
+        <div class="meal-section">
+          <div class="meal-card">
+            <div class="meal-header">
+              <span class="meal-icon">🌅</span>
+              <h3 class="meal-time">Café da Manhã – 07h00</h3>
+            </div>
+            <ul class="meal-items">
+              <li>✅ 25g de albumina + 1 gema</li>
+              <li>✅ 2 fatias de pão integral ou 1 pão francês</li>
+              <li>✅ 2 fatias de muçarela (40g)</li>
+              <li>✅ 200g de fruta (mamão, manga ou abacaxi)</li>
+            </ul>
+          </div>
+
+          <div class="meal-card">
+            <div class="meal-header">
+              <span class="meal-icon">☀️</span>
+              <h3 class="meal-time">Lanche da Manhã – 10h00</h3>
+            </div>
+            <ul class="meal-items">
+              <li>✅ 30g de whey</li>
+              <li>✅ 40g de aveia</li>
+              <li>✅ 1 porção de fruta (1 banana ou 150g de uva/morango/maçã)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="meal-section">
+          <div class="meal-card">
+            <div class="meal-header">
+              <span class="meal-icon">🌞</span>
+              <h3 class="meal-time">Almoço – 13h00</h3>
+            </div>
+            <ul class="meal-items">
+              <li>✅ 100g de frango ou 80g de patinho/acém/lombo suíno ou 120g de tilápia</li>
+              <li class="meal-options">
+                <div class="options-title">🔘 2 porções de carboidrato (escolha 1):</div>
+                <ul class="options-list">
+                  <li>• 100g de arroz + 200g de feijão</li>
+                  <li>• 160g de batata doce + 60g de grão de bico</li>
+                  <li>• 220g de batata inglesa + 50g de tapioca</li>
+                </ul>
+              </li>
+              <li>🥬 Legumes e vegetais à vontade</li>
+            </ul>
+          </div>
+
+          <div class="meal-card">
+            <div class="meal-header">
+              <span class="meal-icon">⚡</span>
+              <h3 class="meal-time">Pré-Treino – 16h00</h3>
+            </div>
+            <ul class="meal-items">
+              <li>✅ 1 colher de chá (3g) de pó de guaraná diluído em água</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="meal-section">
+          <div class="meal-card">
+            <div class="meal-header">
+              <span class="meal-icon">🏋️</span>
+              <h3 class="meal-time">Pós-Treino – 18h30</h3>
+            </div>
+            <ul class="meal-items">
+              <li>✅ 100g de frango ou 80g de patinho/acém/lombo suíno ou 120g de tilápia</li>
+              <li class="meal-options">
+                <div class="options-title">🔘 2 porções de carboidrato (escolha 1):</div>
+                <ul class="options-list">
+                  <li>• 100g de arroz + 200g de feijão</li>
+                  <li>• 160g de batata doce + 60g de grão de bico</li>
+                  <li>• 90g de mandioca + 220g de batata inglesa</li>
+                </ul>
+              </li>
+              <li>🥬 Legumes e vegetais à vontade</li>
+            </ul>
+          </div>
+
+          <div class="meal-card">
+            <div class="meal-header">
+              <span class="meal-icon">🌙</span>
+              <h3 class="meal-time">Ceia – 21h00</h3>
+            </div>
+            <ul class="meal-items">
+              <li>✅ 100g de frango ou 80g de patinho/acém/lombo suíno ou 120g de tilápia</li>
+              <li class="meal-options">
+                <div class="options-title">🔘 2 porções de carboidrato (escolha 1):</div>
+                <ul class="options-list">
+                  <li>• 100g de arroz + 200g de feijão</li>
+                  <li>• 160g de batata doce + 60g de grão de bico</li>
+                </ul>
+              </li>
+              <li>🥬 Legumes e vegetais à vontade</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dieta Carbo Baixo -->
+      <div id="low-carb" class="diet-content">
+        <h2 class="diet-title">Plano de Dieta - Carbo Baixo</h2>
+        
+        <div class="meal-section">
+          <div class="meal-card">
+            <div class="meal-header">
+              <span class="meal-icon">🌅</span>
+              <h3 class="meal-time">Café da Manhã – 07h00</h3>
+            </div>
+            <ul class="meal-items">
+              <li>✅ 25g de albumina + 1 gema</li>
+              <li>✅ 2 fatias de muçarela (40g)</li>
+              <li>✅ 200g de fruta (mamão, manga, abacaxi)</li>
+            </ul>
+          </div>
+
+          <div class="meal-card">
+            <div class="meal-header">
+              <span class="meal-icon">☀️</span>
+              <h3 class="meal-time">Lanche da Manhã – 10h00</h3>
+            </div>
+            <ul class="meal-items">
+              <li>✅ 30g de whey</li>
+              <li>✅ 1 porção de fruta (1 banana ou 150g de uva/morango/maçã)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="meal-section">
+          <div class="meal-card">
+            <div class="meal-header">
+              <span class="meal-icon">🌞</span>
+              <h3 class="meal-time">Almoço – 13h00</h3>
+            </div>
+            <ul class="meal-items">
+              <li>✅ 100g de frango + 50g extra (150g proteína total)</li>
+              <li class="meal-options">
+                <div class="options-title">🔘 1 porção de carboidrato (escolha 1):</div>
+                <ul class="options-list">
+                  <li>• 100g de arroz</li>
+                  <li>• 160g de batata doce</li>
+                  <li>• 90g de mandioca</li>
+                </ul>
+              </li>
+              <li>🥬 Legumes e vegetais à vontade</li>
+            </ul>
+          </div>
+
+          <div class="meal-card">
+            <div class="meal-header">
+              <span class="meal-icon">⚡</span>
+              <h3 class="meal-time">Pré-Treino – 16h00</h3>
+            </div>
+            <ul class="meal-items">
+              <li>✅ 1 colher de chá (3g) de pó de guaraná diluído em água</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="meal-section">
+          <div class="meal-card">
+            <div class="meal-header">
+              <span class="meal-icon">🏋️</span>
+              <h3 class="meal-time">Pós-Treino – 18h30</h3>
+            </div>
+            <ul class="meal-items">
+              <li>✅ 100g de frango + 50g extra (150g proteína total)</li>
+              <li>🚫 Sem carboidrato</li>
+              <li>🥬 Legumes e vegetais à vontade</li>
+            </ul>
+          </div>
+
+          <div class="meal-card">
+            <div class="meal-header">
+              <span class="meal-icon">🌙</span>
+              <h3 class="meal-time">Ceia – 21h00</h3>
+            </div>
+            <ul class="meal-items">
+              <li>✅ 100g de frango + 50g extra (150g proteína total)</li>
+              <li>🚫 Sem carboidrato</li>
+              <li>🥬 Legumes e vegetais à vontade</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button id="save-diet-btn" class="button button-primary">
+        <span class="button-icon">💾</span> Salvar Configuração
+      </button>
+      <button id="reset-diet-btn" class="button button-secondary">
+        <span class="button-icon">🔄</span> Resetar Tudo
+      </button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
