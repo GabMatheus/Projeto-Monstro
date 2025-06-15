@@ -42,6 +42,8 @@ projeto-monstro/
 ├── workout.html      → Página de treino diário
 ├── diet.html         → Página de controle de dieta
 ├── script.js         → Lógica principal da aplicação
+├── README.md         → Arquivo README
+├── screenshots.png   → Imagens de demonstração rodando
 └── styles.css        → Estilos e layout
 ```
 
@@ -58,7 +60,7 @@ projeto-monstro/
    ```
 3. Execute abrindo o arquivo `index.html` no seu navegador.
 
-4. Insira seu nome de usuário e senha, e comece a usar!
+4. Insira a senha, e comece a usar! Apenas para meu uso, ai por isso so a senha básica que coloquei libera o acesso, caso tenha interesse, basta alterar os arquivos e senhas correspondentes.
 
 ---
 
