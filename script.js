@@ -1,13 +1,3 @@
-// Verificação de autenticação global
-if (sessionStorage.getItem('auth') !== 'true' && 
-    !window.location.pathname.includes('index.html')) {
-  window.location.href = 'index.html';
-}
-
-// Modifique todas as funções navigateTo para:
-function navigateTo(page) {
-  window.location.href = page;
-}
 // =============================================
 // CONSTANTES E VARIÁVEIS GLOBAIS
 // =============================================
