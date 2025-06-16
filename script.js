@@ -102,7 +102,7 @@ function checkAuth() {
 // NAVEGAÇÃO
 // =============================================
 function navigateTo(page) {
-  window.location.href = `./${page}`;
+  window.location.href = page;
 }
 
 function setupBackButtons() {
