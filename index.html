@@ -12,35 +12,10 @@
       <h1>Projeto Monstro</h1>
       <p>Digite a senha de acesso</p>
       <input type="password" id="password" class="login-input" placeholder="Senha" autocomplete="off" />
-      <button id="btn-login" class="login-button">Acessar</button>
-      <p id="message" class="message"></p>
+      <button id="btn-login" class="button button-primary">Acessar</button> <p id="message" class="message"></p>
     </div>
   </main>
 
-  <script>
-    document.getElementById('btn-login').addEventListener('click', function() {
-      const password = document.getElementById('password').value;
-      const message = document.getElementById('message');
-      
-      if (password === "121314") {
-        message.textContent = "Acesso concedido! Redirecionando...";
-        message.style.color = "green";
-        // Aqui você pode redirecionar para outra página ou mostrar os dados
-        setTimeout(() => {
-          window.location.href = "menu.html"; // ou outra ação
-        }, 1500);
-      } else {
-        message.textContent = "Senha incorreta! Tente novamente.";
-        message.style.color = "red";
-      }
-    });
-    
-    // Permitir login com Enter
-    document.getElementById('password').addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        document.getElementById('btn-login').click();
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

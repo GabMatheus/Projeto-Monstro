@@ -299,53 +299,30 @@ function resetDiet() {
 // =============================================
 function setupLoginPage() {
   const btnLogin = document.getElementById('btn-login');
-  const usernameInput = document.getElementById('username');
+  const passwordInput = document.getElementById('password'); // Changed from username to password
+  const messageElement = document.getElementById('message'); // Added for messages
 
-  if (btnLogin && usernameInput) {
+  if (btnLogin && passwordInput) {
     btnLogin.addEventListener('click', () => {
-      if (loginUser(usernameInput.value)) {
-        navigateTo('menu.html');
+      const password = passwordInput.value;
+      if (password === "121314") { // Your hardcoded password
+        // Call loginUser to set localStorage and currentUser
+        if (loginUser("AuthenticatedUser")) { // You can set a generic username or prompt for it
+          messageElement.textContent = "Acesso concedido! Redirecionando...";
+          messageElement.style.color = "green";
+          setTimeout(() => {
+            navigateTo('menu.html');
+          }, 500); // Shorter delay for testing
+        }
+      } else {
+        messageElement.textContent = "Senha incorreta! Tente novamente.";
+        messageElement.style.color = "red";
       }
     });
 
-    usernameInput.addEventListener('keypress', (e) => {
+    passwordInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') btnLogin.click();
     });
-  }
-}
-
-function setupMenuPage() {
-  document.getElementById('user-name').textContent = currentUser;
-  setupWorkoutNavigation();
-  setupAutoSchedule();
-  
-  document.querySelectorAll('.menu-option').forEach(option => {
-    if (option.dataset.target) {
-      option.addEventListener('click', () => navigateTo(option.dataset.target));
-    }
-  });
-}
-
-function setupWorkoutPage() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const day = parseInt(urlParams.get('day'));
-
-  if (day && workoutData[day]) {
-    loadWorkoutDay(day);
-  } else {
-    navigateTo('menu.html');
-  }
-}
-
-function setupAutoSchedule() {
-  const today = new Date().getDay();
-  const workoutSchedule = {
-    1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: null, 0: null
-  };
-  
-  const todayWorkout = workoutSchedule[today];
-  if (todayWorkout) {
-    document.querySelector(`.day-btn[data-day="${todayWorkout}"]`)?.classList.add('today-workout');
   }
 }
 
