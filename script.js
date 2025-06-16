@@ -2,10 +2,10 @@
 // CONSTANTES E VARIÁVEIS GLOBAIS
 // =============================================
 const WORKOUT_DAYS = [1, 2, 3, 4, 5];
-let currentUser = localStorage.getItem('projetoMonstroUser') || '';
-let currentWorkoutDay = null;
+let currentUser = localStorage.getItem('projetoMonstroUser') || ''; //
+let currentWorkoutDay = null; //
 
-const workoutData = {
+const workoutData = { //
   1: {
     title: "Peito (Ênfase) + Tríceps + Ombro (leve) + Abdômen + Cardio",
     exercises: [
@@ -80,19 +80,19 @@ const workoutData = {
 // =============================================
 // GERENCIAMENTO DE USUÁRIO
 // =============================================
-function loginUser(username) {
+function loginUser(username) { //
   if (!username.trim()) {
     alert('Digite seu nome para começar!');
     return false;
   }
-  currentUser = username.trim();
-  localStorage.setItem('projetoMonstroUser', currentUser);
+  currentUser = username.trim(); //
+  localStorage.setItem('projetoMonstroUser', currentUser); //
   return true;
 }
 
-function checkAuth() {
-  if (!currentUser && !document.body.classList.contains('login-page')) {
-    navigateTo('index.html');
+function checkAuth() { //
+  if (!currentUser && !document.body.classList.contains('login-page')) { //
+    navigateTo('index.html'); //
     return false;
   }
   return true;
@@ -101,20 +101,20 @@ function checkAuth() {
 // =============================================
 // NAVEGAÇÃO
 // =============================================
-function navigateTo(page) {
+function navigateTo(page) { //
   window.location.href = page;
 }
 
-function setupBackButtons() {
+function setupBackButtons() { //
   document.querySelectorAll('.back-button, #btn-back').forEach(btn => {
-    btn.addEventListener('click', () => navigateTo('menu.html'));
+    btn.addEventListener('click', () => navigateTo('menu.html')); //
   });
 }
 
-function setupWorkoutNavigation() {
-  document.querySelectorAll('.day-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      navigateTo(`workout.html?day=${btn.dataset.day}`);
+function setupWorkoutNavigation() { //
+  document.querySelectorAll('.day-btn').forEach(btn => { //
+    btn.addEventListener('click', () => { //
+      navigateTo(`workout.html?day=${btn.dataset.day}`); //
     });
   });
 }
@@ -122,16 +122,16 @@ function setupWorkoutNavigation() {
 // =============================================
 // GERENCIAMENTO DE TREINOS
 // =============================================
-function loadWorkoutDay(day) {
-  if (!workoutData[day]) return;
-  
-  currentWorkoutDay = day;
-  const dayData = workoutData[day];
+function loadWorkoutDay(day) { //
+  if (!workoutData[day]) return; //
 
-  document.getElementById('day-number').textContent = day;
-  document.title = `Treino - Dia ${day}`;
+  currentWorkoutDay = day; //
+  const dayData = workoutData[day]; //
 
-  const workoutSection = document.getElementById('workout-day');
+  document.getElementById('day-number').textContent = day; //
+  document.title = `Treino - Dia ${day}`; //
+
+  const workoutSection = document.getElementById('workout-day'); //
   workoutSection.innerHTML = `
     <h2>Dia ${day} – ${dayData.title}</h2>
     <ul class="workout-list">
@@ -145,17 +145,17 @@ function loadWorkoutDay(day) {
       `).join('')}
     </ul>
     <p class="workout-notes">${dayData.notes}</p>
-  `;
+  `; //
 
   // Carrega progresso salvo
-  const savedProgress = JSON.parse(localStorage.getItem(`workoutDay${day}`)) || {};
-  const checkboxes = document.querySelectorAll('.workout-checkbox');
+  const savedProgress = JSON.parse(localStorage.getItem(`workoutDay${day}`)) || {}; //
+  const checkboxes = document.querySelectorAll('.workout-checkbox'); //
   
-  checkboxes.forEach((checkbox, index) => {
-    checkbox.checked = savedProgress[index] || false;
-    checkbox.addEventListener('change', function() {
-      const currentStatus = Array.from(checkboxes).map(cb => cb.checked);
-      localStorage.setItem(`workoutDay${day}`, JSON.stringify(currentStatus));
+  checkboxes.forEach((checkbox, index) => { //
+    checkbox.checked = savedProgress[index] || false; //
+    checkbox.addEventListener('change', function() { //
+      const currentStatus = Array.from(checkboxes).map(cb => cb.checked); //
+      localStorage.setItem(`workoutDay${day}`, JSON.stringify(currentStatus)); //
     });
   });
 }
@@ -163,204 +163,215 @@ function loadWorkoutDay(day) {
 // =============================================
 // GERENCIAMENTO DE DIETA
 // =============================================
-function setupDietPage() {
-  setupDietCalendar();
-  setupDietTabs();
-  updateCurrentDayInfo();
+function setupDietPage() { //
+  setupDietCalendar(); //
+  setupDietTabs(); //
+  updateCurrentDayInfo(); //
   
   // Botões de ação
-  document.getElementById('save-diet-btn')?.addEventListener('click', saveDiet);
-  document.getElementById('reset-diet-btn')?.addEventListener('click', resetDiet);
+  document.getElementById('save-diet-btn')?.addEventListener('click', saveDiet); //
+  document.getElementById('reset-diet-btn')?.addEventListener('click', resetDiet); //
 }
 
-function setupDietCalendar() {
-  const weekDaysContainer = document.querySelector('.week-days');
-  const daysOfWeek = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+function setupDietCalendar() { //
+  const weekDaysContainer = document.querySelector('.week-days'); //
+  const daysOfWeek = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']; //
   
   // Carrega configuração salva
-  const savedConfig = JSON.parse(localStorage.getItem('dietCalendar')) || {
-    carboAltoDay: null,
-    weekStart: getStartOfWeek(new Date()).toISOString()
+  const savedConfig = JSON.parse(localStorage.getItem('dietCalendar')) || { //
+    carboAltoDay: null, //
+    weekStart: getStartOfWeek(new Date()).toISOString() //
   };
 
   // Cria os dias da semana
-  daysOfWeek.forEach((day, index) => {
-    const dayElement = document.createElement('div');
-    dayElement.className = `day-selector ${savedConfig.carboAltoDay === index ? 'selected carbo-day' : 'normal-day'}`;
-    dayElement.textContent = day;
-    dayElement.dataset.dayIndex = index;
+  daysOfWeek.forEach((day, index) => { //
+    const dayElement = document.createElement('div'); //
+    dayElement.className = `day-selector ${savedConfig.carboAltoDay === index ? 'selected carbo-day' : 'normal-day'}`; //
+    dayElement.textContent = day; //
+    dayElement.dataset.dayIndex = index; //
     
-    dayElement.addEventListener('click', function() {
-      if (this.classList.contains('disabled')) return;
+    dayElement.addEventListener('click', function() { //
+      if (this.classList.contains('disabled')) return; //
       
       // Atualiza seleção
-      updateDaySelection(index);
+      updateDaySelection(index); //
       
       // Atualiza e salva configuração
-      const newConfig = {
-        carboAltoDay: index,
-        weekStart: savedConfig.weekStart
+      const newConfig = { //
+        carboAltoDay: index, //
+        weekStart: savedConfig.weekStart //
       };
-      localStorage.setItem('dietCalendar', JSON.stringify(newConfig));
+      localStorage.setItem('dietCalendar', JSON.stringify(newConfig)); //
       
       // Atualiza a interface
-      updateDietDisplay();
-      updateCurrentDayInfo();
+      updateDietDisplay(); //
+      updateCurrentDayInfo(); //
     });
     
-    weekDaysContainer.appendChild(dayElement);
+    weekDaysContainer.appendChild(dayElement); //
   });
 
   // Atualiza estado inicial
-  updateDietDisplay();
+  updateDietDisplay(); //
 }
 
-function updateDaySelection(selectedIndex) {
-  document.querySelectorAll('.day-selector').forEach(day => {
-    const dayIndex = parseInt(day.dataset.dayIndex);
-    day.classList.remove('selected', 'carbo-day', 'normal-day', 'disabled');
+function updateDaySelection(selectedIndex) { //
+  document.querySelectorAll('.day-selector').forEach(day => { //
+    const dayIndex = parseInt(day.dataset.dayIndex); //
+    day.classList.remove('selected', 'carbo-day', 'normal-day', 'disabled'); //
     
-    if (dayIndex === selectedIndex) {
-      day.classList.add('selected', 'carbo-day');
+    if (dayIndex === selectedIndex) { //
+      day.classList.add('selected', 'carbo-day'); //
     } else {
-      day.classList.add('normal-day', 'disabled');
+      day.classList.add('normal-day', 'disabled'); //
     }
   });
 }
 
-function getStartOfWeek(date) {
-  const d = new Date(date);
-  const day = d.getDay();
-  const diff = d.getDate() - day + (day === 0 ? -6 : 1);
-  return new Date(d.setDate(diff));
+function getStartOfWeek(date) { //
+  const d = new Date(date); //
+  const day = d.getDay(); //
+  const diff = d.getDate() - day + (day === 0 ? -6 : 1); //
+  return new Date(d.setDate(diff)); //
 }
 
-function setupDietTabs() {
-  const tabs = document.querySelectorAll('.diet-tab');
-  const contents = document.querySelectorAll('.diet-content');
+function setupDietTabs() { //
+  const tabs = document.querySelectorAll('.diet-tab'); //
+  const contents = document.querySelectorAll('.diet-content'); //
   
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const tabId = tab.getAttribute('data-tab');
+  tabs.forEach(tab => { //
+    tab.addEventListener('click', () => { //
+      const tabId = tab.getAttribute('data-tab'); //
       
       // Ativa aba clicada
-      tabs.forEach(t => t.classList.remove('active'));
-      contents.forEach(c => c.classList.remove('active'));
+      tabs.forEach(t => t.classList.remove('active')); //
+      contents.forEach(c => c.classList.remove('active')); //
       
-      tab.classList.add('active');
-      document.getElementById(tabId).classList.add('active');
+      tab.classList.add('active'); //
+      document.getElementById(tabId).classList.add('active'); //
     });
   });
 }
 
-function updateDietDisplay() {
-  const savedConfig = JSON.parse(localStorage.getItem('dietCalendar')) || {};
-  const today = new Date().getDay();
-  const isCarboAltoDay = savedConfig.carboAltoDay === today;
+function updateDietDisplay() { //
+  const savedConfig = JSON.parse(localStorage.getItem('dietCalendar')) || {}; //
+  const today = new Date().getDay(); //
+  const isCarboAltoDay = savedConfig.carboAltoDay === today; //
   
   // Ativa a aba correspondente
-  const tabToActivate = isCarboAltoDay ? 'high-carb' : 'low-carb';
-  document.querySelector(`.diet-tab[data-tab="${tabToActivate}"]`).click();
+  const tabToActivate = isCarboAltoDay ? 'high-carb' : 'low-carb'; //
+  document.querySelector(`.diet-tab[data-tab="${tabToActivate}"]`).click(); //
 }
 
-function updateCurrentDayInfo() {
-  const days = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
-  const today = new Date();
-  const dayName = days[today.getDay()];
+function updateCurrentDayInfo() { //
+  const days = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']; //
+  const today = new Date(); //
+  const dayName = days[today.getDay()]; //
   
-  const savedConfig = JSON.parse(localStorage.getItem('dietCalendar')) || {};
-  const isCarboAltoDay = savedConfig.carboAltoDay === today.getDay();
+  const savedConfig = JSON.parse(localStorage.getItem('dietCalendar')) || {}; //
+  const isCarboAltoDay = savedConfig.carboAltoDay === today.getDay(); //
   
-  document.getElementById('current-day-name').textContent = dayName;
-  const dietTypeElement = document.getElementById('current-diet-type');
+  document.getElementById('current-day-name').textContent = dayName; //
+  const dietTypeElement = document.getElementById('current-diet-type'); //
   
-  dietTypeElement.textContent = isCarboAltoDay ? 'Carbo Alto' : 'Carbo Baixo';
-  dietTypeElement.className = isCarboAltoDay ? 'diet-type-badge carbo-high' : 'diet-type-badge carbo-low';
+  dietTypeElement.textContent = isCarboAltoDay ? 'Carbo Alto' : 'Carbo Baixo'; //
+  dietTypeElement.className = isCarboAltoDay ? 'diet-type-badge carbo-high' : 'diet-type-badge carbo-low'; //
 }
 
-function saveDiet() {
+function saveDiet() { //
   // Implemente conforme necessário para salvar outras preferências
-  alert('Configurações de dieta salvas com sucesso!');
+  alert('Configurações de dieta salvas com sucesso!'); //
 }
 
-function resetDiet() {
-  if (confirm('Tem certeza que deseja resetar TODAS as configurações de dieta?')) {
-    localStorage.removeItem('dietCalendar');
-    document.querySelectorAll('.day-selector').forEach(day => {
-      day.classList.remove('selected', 'carbo-day', 'disabled');
-      day.classList.add('normal-day');
+function resetDiet() { //
+  if (confirm('Tem certeza que deseja resetar TODAS as configurações de dieta?')) { //
+    localStorage.removeItem('dietCalendar'); //
+    document.querySelectorAll('.day-selector').forEach(day => { //
+      day.classList.remove('selected', 'carbo-day', 'disabled'); //
+      day.classList.add('normal-day'); //
     });
-    updateCurrentDayInfo();
+    updateCurrentDayInfo(); //
   }
 }
 
 // =============================================
 // CONFIGURAÇÃO DE PÁGINAS
 // =============================================
-function setupLoginPage() {
-  const btnLogin = document.getElementById('btn-login');
-  const usernameInput = document.getElementById('username');
+function setupLoginPage() { //
+  const btnLogin = document.getElementById('btn-login'); //
+  const passwordInput = document.getElementById('password'); // Corrigido para 'password'
+  const messageElement = document.getElementById('message'); // Para exibir mensagens
 
-  if (btnLogin && usernameInput) {
-    btnLogin.addEventListener('click', () => {
-      if (loginUser(usernameInput.value)) {
-        navigateTo('menu.html');
+  if (btnLogin && passwordInput && messageElement) { // Garante que todos os elementos existam
+    btnLogin.addEventListener('click', () => { //
+      const password = passwordInput.value;
+      if (password === "121314") { // Sua senha hardcoded
+        if (loginUser("AuthenticatedUser")) { // Chama loginUser para definir localStorage
+          messageElement.textContent = "Acesso concedido! Redirecionando...";
+          messageElement.style.color = "green";
+          setTimeout(() => {
+            navigateTo('menu.html'); //
+          }, 500); // Atraso menor para testes
+        }
+      } else {
+        messageElement.textContent = "Senha incorreta! Tente novamente.";
+        messageElement.style.color = "red";
       }
     });
 
-    usernameInput.addEventListener('keypress', (e) => {
+    passwordInput.addEventListener('keypress', (e) => { //
       if (e.key === 'Enter') btnLogin.click();
     });
   }
 }
 
-function setupMenuPage() {
-  document.getElementById('user-name').textContent = currentUser;
-  setupWorkoutNavigation();
-  setupAutoSchedule();
+function setupMenuPage() { //
+  document.getElementById('user-name').textContent = currentUser; //
+  setupWorkoutNavigation(); //
+  setupAutoSchedule(); //
   
-  document.querySelectorAll('.menu-option').forEach(option => {
-    if (option.dataset.target) {
-      option.addEventListener('click', () => navigateTo(option.dataset.target));
+  document.querySelectorAll('.menu-option').forEach(option => { //
+    if (option.dataset.target) { //
+      option.addEventListener('click', () => navigateTo(option.dataset.target)); //
     }
   });
 }
 
-function setupWorkoutPage() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const day = parseInt(urlParams.get('day'));
+function setupWorkoutPage() { //
+  const urlParams = new URLSearchParams(window.location.search); //
+  const day = parseInt(urlParams.get('day')); //
 
-  if (day && workoutData[day]) {
-    loadWorkoutDay(day);
+  if (day && workoutData[day]) { //
+    loadWorkoutDay(day); //
   } else {
-    navigateTo('menu.html');
+    navigateTo('menu.html'); //
   }
 }
 
-function setupAutoSchedule() {
-  const today = new Date().getDay();
-  const workoutSchedule = {
-    1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: null, 0: null
+function setupAutoSchedule() { //
+  const today = new Date().getDay(); //
+  const workoutSchedule = { //
+    1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: null, 0: null //
   };
   
-  const todayWorkout = workoutSchedule[today];
-  if (todayWorkout) {
-    document.querySelector(`.day-btn[data-day="${todayWorkout}"]`)?.classList.add('today-workout');
+  const todayWorkout = workoutSchedule[today]; //
+  if (todayWorkout) { //
+    document.querySelector(`.day-btn[data-day="${todayWorkout}"]`)?.classList.add('today-workout'); //
   }
 }
 
 // =============================================
 // INICIALIZAÇÃO
 // =============================================
-function initializePage() {
-  if (!checkAuth()) return;
+function initializePage() { //
+  if (!checkAuth()) return; //
   
-  setupBackButtons();
+  setupBackButtons(); //
 
-  if (document.body.classList.contains('login-page')) setupLoginPage();
-  if (document.body.classList.contains('menu-page')) setupMenuPage();
-  if (document.body.classList.contains('workout-page')) setupWorkoutPage();
-  if (document.body.classList.contains('diet-page')) setupDietPage();
+  if (document.body.classList.contains('login-page')) setupLoginPage(); //
+  if (document.body.classList.contains('menu-page')) setupMenuPage(); //
+  if (document.body.classList.contains('workout-page')) setupWorkoutPage(); //
+  if (document.body.classList.contains('diet-page')) setupDietPage(); //
 }
 
-document.addEventListener('DOMContentLoaded', initializePage);
+document.addEventListener('DOMContentLoaded', initializePage); //
