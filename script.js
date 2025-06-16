@@ -2,6 +2,7 @@
 // CONSTANTES E VARIÁVEIS GLOBAIS
 // =============================================
 const WORKOUT_DAYS = [1, 2, 3, 4, 5];
+// This will correctly get 'gabs' (or whatever value is set on login) if set, or '' otherwise
 let currentUser = localStorage.getItem('projetoMonstroUser') || '';
 let currentWorkoutDay = null;
 
@@ -23,74 +24,65 @@ const workoutData = {
   2: {
     title: "Pernas Completa + Abdômen + Cardio leve",
     exercises: [
-      "Agachamento livre ou smith – 4x 8-10",
-      "Leg press 45° – 4x 10-12",
-      "Cadeira extensora – 4x 12-15",
-      "Stiff com halteres ou barra – 4x 10-12",
-      "Mesa flexora – 3x 12-15",
-      "Afundo com halteres (passada) – 3x 10 cada perna",
-      "Gêmeos em pé ou sentado – 4x 20",
-      "Abdômen: Infra (elevação pernas) – 4x 20"
+      "Agachamento livre ou smith – 4x 8-10 🔥",
+      "Leg Press – 4x 10-12",
+      "Cadeira extensora – 3x 12-15 (com isometria de pico)",
+      "Mesa ou cadeira flexora – 3x 12-15",
+      "Stiff ou levantamento terra romeno – 3x 10-12",
+      "Panturrilha sentado – 4x 15-20",
+      "Panturrilha em pé ou leg press – 3x 15-20",
+      "Abdominal remador – 3x 15-20"
     ],
-    notes: "✔️ Cardio leve: 20-30 min (esteira inclinada, escada, bike leve)"
+    notes: "✔️ Cardio Pós:<br />→ 15 a 20 min moderado (esteira inclinada, bike ou escada)"
   },
   3: {
-    title: "Costas + Bíceps + HIIT",
+    title: "Costas (Ênfase) + Bíceps + Posterior de Ombro + Abdômen + Cardio",
     exercises: [
-      "Puxada frente aberta – 4x 10-12",
-      "Remada curvada barra ou halter – 4x 8-10",
-      "Remada baixa máquina ou polia – 4x 10-12",
-      "Pullover polia alta ou máquina – 3x 12-15",
-      "Rosca direta barra – 4x 10-12",
-      "Rosca alternada halteres – 3x 12",
-      "Rosca martelo – 3x 12-15"
+      "Puxada alta (barra ou triângulo) – 4x 8-10 🔥",
+      "Remada sentado (máquina ou cabo) – 4x 10-12",
+      "Remada curvada ou máquina unilateral – 3x 10-12",
+      "Pullover com corda ou halteres – 3x 12-15",
+      "Rosca direta barra W – 4x 10-12",
+      "Rosca alternada halteres – 3x 12-15",
+      "Crucifixo invertido ou posterior ombro máquina – 3x 15",
+      "Abdominal canivete – 3x 15-20"
     ],
-    notes: "✔️ HIIT Pós:<br />→ 20 seg forte (corrida/bike/corda) + 40 seg leve → 8 a 10 voltas (10-15 min)"
+    notes: "✔️ Cardio Pós:<br />→ 15 a 20 min moderado (esteira inclinada, bike ou escada)"
   },
   4: {
-    title: "Ombro (Ênfase) + Tríceps + Peito (leve) + Abdômen + Cardio",
+    title: "Ombro Completo (Ênfase) + Trapézio + Tríceps leve + Abdômen + Cardio",
     exercises: [
-      "Desenvolvimento halteres ou barra – 4x 10",
-      "Elevação lateral – 4x 15 (prioriza)",
-      "Elevação frontal – 3x 12",
-      "Crucifixo inverso (posterior) – 4x 15",
-      "Tríceps pulley inverso (barra V ou corda) – 4x 12",
-      "Tríceps testa ou coice halter – 3x 12-15",
-      "Supino reto halteres ou máquina (leve) – 3x 10",
-      "Abdominal no cross – 3x 20"
+      "Desenvolvimento de ombro halteres ou máquina – 4x 8-10 🔥",
+      "Elevação lateral halteres ou cabo – 4x 12-15",
+      "Elevação frontal halteres ou cabo – 3x 12-15",
+      "Encolhimento com halteres ou barra – 4x 10-12",
+      "Tríceps testa ou francês (leve, só ativar) – 3x 12-15",
+      "Abdominal oblíquo ou russo – 3x 15-20 (cada lado)"
     ],
-    notes: "✔️ Cardio pós: 15-20 min moderado"
+    notes: "✔️ Cardio Pós:<br />→ 15 a 20 min moderado (esteira inclinada, bike ou escada)"
   },
   5: {
-    title: "Full Body Metabólico + Core + HIIT - Circuito (3-5 voltas, descanso 60 seg por volta)",
+    title: "Pernas (Posterior + Glúteo Ênfase) + Panturrilha + Cardio leve",
     exercises: [
-      "Agachamento halteres – 15",
-      "Flexão de braço – 15",
-      "Remada curvada halteres – 15",
-      "Desenvolvimento halteres – 15",
-      "Rosca direta – 15",
-      "Tríceps corda – 15",
-      "Abdominal infra – 20",
-      "Prancha – 40 seg"
+      "Levantamento Terra (sumô ou convencional) – 4x 6-8 🔥",
+      "Elevação pélvica ou glúteo máquina – 4x 10-12",
+      "Passada ou afundo (andando ou parado) – 3x 10-12 (cada perna)",
+      "Mesa ou cadeira flexora – 4x 12-15 (com isometria de pico)",
+      "Cadeira abdutora – 3x 15-20",
+      "Panturrilha em pé – 4x 15-20",
+      "Cardio Intenso (HIIT ou tiro na esteira) – 15-20 min"
     ],
-    notes: "✔️ HIIT pós: 20 seg forte + 40 seg leve (8 a 10 voltas)"
+    notes: "✔️ Cardio Pós:<br />→ 15 a 20 min moderado (esteira inclinada, bike ou escada)"
   }
 };
 
 // =============================================
-// GERENCIAMENTO DE USUÁRIO
+// GERENCIAMENTO DE USUÁRIO E AUTENTICAÇÃO
 // =============================================
-function loginUser(username) {
-  if (!username.trim()) {
-    alert('Digite seu nome para começar!');
-    return false;
-  }
-  currentUser = username.trim();
-  localStorage.setItem('projetoMonstroUser', currentUser);
-  return true;
-}
 
 function checkAuth() {
+  // If currentUser is empty and we are not on the login page, redirect to login.
+  // This prevents infinite loops if localStorage is cleared or not set.
   if (!currentUser && !document.body.classList.contains('login-page')) {
     navigateTo('index.html');
     return false;
@@ -101,224 +93,81 @@ function checkAuth() {
 // =============================================
 // NAVEGAÇÃO
 // =============================================
-function navigateTo(page) {
-  window.location.href = page;
+
+function navigateTo(url) {
+  window.location.href = url;
 }
 
 function setupBackButtons() {
-  document.querySelectorAll('.back-button, #btn-back').forEach(btn => {
-    btn.addEventListener('click', () => navigateTo('menu.html'));
-  });
+  const btnBack = document.getElementById('btn-back');
+  if (btnBack) {
+    btnBack.addEventListener('click', () => {
+      // For workout.html, go back to menu.html
+      // For diet.html, go back to menu.html
+      // This ensures a consistent back navigation
+      if (document.body.classList.contains('workout-page') || document.body.classList.contains('diet-page')) {
+        navigateTo('menu.html');
+      } else {
+        // Fallback for other pages, though not explicitly used in this structure
+        window.history.back();
+      }
+    });
+  }
 }
 
 function setupWorkoutNavigation() {
-  document.querySelectorAll('.day-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      navigateTo(`workout.html?day=${btn.dataset.day}`);
+  const dayButtons = document.querySelectorAll('.day-selector .day-btn');
+  dayButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const day = button.dataset.day;
+      navigateTo(`workout.html?day=${day}`);
     });
   });
-}
-
-// =============================================
-// GERENCIAMENTO DE TREINOS
-// =============================================
-function loadWorkoutDay(day) {
-  if (!workoutData[day]) return;
-  
-  currentWorkoutDay = day;
-  const dayData = workoutData[day];
-
-  document.getElementById('day-number').textContent = day;
-  document.title = `Treino - Dia ${day}`;
-
-  const workoutSection = document.getElementById('workout-day');
-  workoutSection.innerHTML = `
-    <h2>Dia ${day} – ${dayData.title}</h2>
-    <ul class="workout-list">
-      ${dayData.exercises.map((ex, i) => `
-        <li class="workout-item">
-          <label>
-            <input type="checkbox" class="workout-checkbox" data-exercise="${i}">
-            ${ex}
-          </label>
-        </li>
-      `).join('')}
-    </ul>
-    <p class="workout-notes">${dayData.notes}</p>
-  `;
-
-  // Carrega progresso salvo
-  const savedProgress = JSON.parse(localStorage.getItem(`workoutDay${day}`)) || {};
-  const checkboxes = document.querySelectorAll('.workout-checkbox');
-  
-  checkboxes.forEach((checkbox, index) => {
-    checkbox.checked = savedProgress[index] || false;
-    checkbox.addEventListener('change', function() {
-      const currentStatus = Array.from(checkboxes).map(cb => cb.checked);
-      localStorage.setItem(`workoutDay${day}`, JSON.stringify(currentStatus));
-    });
-  });
-}
-
-// =============================================
-// GERENCIAMENTO DE DIETA
-// =============================================
-function setupDietPage() {
-  setupDietCalendar();
-  setupDietTabs();
-  updateCurrentDayInfo();
-  
-  // Botões de ação
-  document.getElementById('save-diet-btn')?.addEventListener('click', saveDiet);
-  document.getElementById('reset-diet-btn')?.addEventListener('click', resetDiet);
-}
-
-function setupDietCalendar() {
-  const weekDaysContainer = document.querySelector('.week-days');
-  const daysOfWeek = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
-  
-  // Carrega configuração salva
-  const savedConfig = JSON.parse(localStorage.getItem('dietCalendar')) || {
-    carboAltoDay: null,
-    weekStart: getStartOfWeek(new Date()).toISOString()
-  };
-
-  // Cria os dias da semana
-  daysOfWeek.forEach((day, index) => {
-    const dayElement = document.createElement('div');
-    dayElement.className = `day-selector ${savedConfig.carboAltoDay === index ? 'selected carbo-day' : 'normal-day'}`;
-    dayElement.textContent = day;
-    dayElement.dataset.dayIndex = index;
-    
-    dayElement.addEventListener('click', function() {
-      if (this.classList.contains('disabled')) return;
-      
-      // Atualiza seleção
-      updateDaySelection(index);
-      
-      // Atualiza e salva configuração
-      const newConfig = {
-        carboAltoDay: index,
-        weekStart: savedConfig.weekStart
-      };
-      localStorage.setItem('dietCalendar', JSON.stringify(newConfig));
-      
-      // Atualiza a interface
-      updateDietDisplay();
-      updateCurrentDayInfo();
-    });
-    
-    weekDaysContainer.appendChild(dayElement);
-  });
-
-  // Atualiza estado inicial
-  updateDietDisplay();
-}
-
-function updateDaySelection(selectedIndex) {
-  document.querySelectorAll('.day-selector').forEach(day => {
-    const dayIndex = parseInt(day.dataset.dayIndex);
-    day.classList.remove('selected', 'carbo-day', 'normal-day', 'disabled');
-    
-    if (dayIndex === selectedIndex) {
-      day.classList.add('selected', 'carbo-day');
-    } else {
-      day.classList.add('normal-day', 'disabled');
-    }
-  });
-}
-
-function getStartOfWeek(date) {
-  const d = new Date(date);
-  const day = d.getDay();
-  const diff = d.getDate() - day + (day === 0 ? -6 : 1);
-  return new Date(d.setDate(diff));
-}
-
-function setupDietTabs() {
-  const tabs = document.querySelectorAll('.diet-tab');
-  const contents = document.querySelectorAll('.diet-content');
-  
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const tabId = tab.getAttribute('data-tab');
-      
-      // Ativa aba clicada
-      tabs.forEach(t => t.classList.remove('active'));
-      contents.forEach(c => c.classList.remove('active'));
-      
-      tab.classList.add('active');
-      document.getElementById(tabId).classList.add('active');
-    });
-  });
-}
-
-function updateDietDisplay() {
-  const savedConfig = JSON.parse(localStorage.getItem('dietCalendar')) || {};
-  const today = new Date().getDay();
-  const isCarboAltoDay = savedConfig.carboAltoDay === today;
-  
-  // Ativa a aba correspondente
-  const tabToActivate = isCarboAltoDay ? 'high-carb' : 'low-carb';
-  document.querySelector(`.diet-tab[data-tab="${tabToActivate}"]`).click();
-}
-
-function updateCurrentDayInfo() {
-  const days = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
-  const today = new Date();
-  const dayName = days[today.getDay()];
-  
-  const savedConfig = JSON.parse(localStorage.getItem('dietCalendar')) || {};
-  const isCarboAltoDay = savedConfig.carboAltoDay === today.getDay();
-  
-  document.getElementById('current-day-name').textContent = dayName;
-  const dietTypeElement = document.getElementById('current-diet-type');
-  
-  dietTypeElement.textContent = isCarboAltoDay ? 'Carbo Alto' : 'Carbo Baixo';
-  dietTypeElement.className = isCarboAltoDay ? 'diet-type-badge carbo-high' : 'diet-type-badge carbo-low';
-}
-
-function saveDiet() {
-  // Implemente conforme necessário para salvar outras preferências
-  alert('Configurações de dieta salvas com sucesso!');
-}
-
-function resetDiet() {
-  if (confirm('Tem certeza que deseja resetar TODAS as configurações de dieta?')) {
-    localStorage.removeItem('dietCalendar');
-    document.querySelectorAll('.day-selector').forEach(day => {
-      day.classList.remove('selected', 'carbo-day', 'disabled');
-      day.classList.add('normal-day');
-    });
-    updateCurrentDayInfo();
-  }
 }
 
 // =============================================
 // CONFIGURAÇÃO DE PÁGINAS
 // =============================================
+
 function setupLoginPage() {
   const btnLogin = document.getElementById('btn-login');
-  const usernameInput = document.getElementById('username');
+  // Use 'password' as the ID for the input, consistent with index.html
+  const passwordInput = document.getElementById('password'); 
+  const messageElement = document.getElementById('message');
 
-  if (btnLogin && usernameInput) {
+  if (btnLogin && passwordInput) {
     btnLogin.addEventListener('click', () => {
-      if (loginUser(usernameInput.value)) {
-        navigateTo('menu.html');
+      const password = passwordInput.value;
+      if (password === "121314") { // Hardcoded password check
+        currentUser = "gabs"; // Set a value to signify logged in
+        localStorage.setItem('projetoMonstroUser', currentUser); // Set local storage
+        messageElement.textContent = "Acesso concedido! Redirecionando...";
+        messageElement.style.color = "green";
+        setTimeout(() => {
+          navigateTo('menu.html'); // Redirect to menu.html
+        }, 1500);
+      } else {
+        messageElement.textContent = "Senha incorreta! Tente novamente.";
+        messageElement.style.color = "red";
       }
     });
 
-    usernameInput.addEventListener('keypress', (e) => {
+    passwordInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') btnLogin.click();
     });
   }
 }
 
 function setupMenuPage() {
-  document.getElementById('user-name').textContent = currentUser;
-  setupWorkoutNavigation();
-  setupAutoSchedule();
+  // Only try to set textContent if the element exists
+  const userNameSpan = document.getElementById('user-name');
+  if (userNameSpan) {
+    userNameSpan.textContent = currentUser;
+  }
   
+  setupWorkoutNavigation();
+  setupAutoSchedule(); // Call auto-schedule for menu page
+
   document.querySelectorAll('.menu-option').forEach(option => {
     if (option.dataset.target) {
       option.addEventListener('click', () => navigateTo(option.dataset.target));
@@ -329,38 +178,149 @@ function setupMenuPage() {
 function setupWorkoutPage() {
   const urlParams = new URLSearchParams(window.location.search);
   const day = parseInt(urlParams.get('day'));
+  currentWorkoutDay = day; // Store the current workout day
 
   if (day && workoutData[day]) {
     loadWorkoutDay(day);
   } else {
+    // If no valid day, redirect back to menu to avoid broken page
     navigateTo('menu.html');
   }
 }
 
+function loadWorkoutDay(day) {
+  const workoutSection = document.getElementById('workout-day');
+  const dayNumberSpan = document.getElementById('day-number');
+
+  if (!workoutSection || !dayNumberSpan) {
+    console.error("Elementos de treino não encontrados.");
+    return;
+  }
+
+  const data = workoutData[day];
+  if (!data) {
+    workoutSection.innerHTML = `<p>Dados de treino para o Dia ${day} não encontrados.</p>`;
+    return;
+  }
+
+  dayNumberSpan.textContent = day;
+  let exercisesHtml = data.exercises.map(ex => `<li>${ex}</li>`).join('');
+  let notesHtml = data.notes ? `<p class="workout-notes">${data.notes}</p>` : '';
+
+  workoutSection.innerHTML = `
+    <h2>${data.title}</h2>
+    <h3>Exercícios:</h3>
+    <ul class="exercise-list">
+      ${exercisesHtml}
+    </ul>
+    ${notesHtml}
+  `;
+}
+
+function setupDietPage() {
+  const weekDaysContainer = document.querySelector('.week-days');
+  const currentDayName = document.getElementById('current-day-name');
+  const currentDietType = document.getElementById('current-diet-type');
+  const saveDietBtn = document.getElementById('save-diet-btn');
+  const carbHighMealsContainer = document.getElementById('carb-high-meals');
+  const carbLowMealsContainer = document.getElementById('carb-low-meals');
+
+  // Load saved diet config from localStorage
+  let savedDietConfig = JSON.parse(localStorage.getItem('dietConfig')) || { highCarbDay: null };
+
+  // Generate day buttons
+  const dayNames = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+  weekDaysContainer.innerHTML = ''; // Clear previous content
+  for (let i = 0; i < 7; i++) {
+    const dayBtn = document.createElement('button');
+    dayBtn.classList.add('day-btn-diet');
+    dayBtn.dataset.dayIndex = i;
+    dayBtn.textContent = dayNames[i];
+    if (savedDietConfig.highCarbDay === i) {
+      dayBtn.classList.add('selected');
+    }
+    dayBtn.addEventListener('click', () => {
+      // Deselect all and select clicked
+      document.querySelectorAll('.day-btn-diet').forEach(btn => btn.classList.remove('selected'));
+      dayBtn.classList.add('selected');
+      savedDietConfig.highCarbDay = i;
+      updateCurrentDayInfo();
+    });
+    weekDaysContainer.appendChild(dayBtn);
+  }
+
+  function updateCurrentDayInfo() {
+    const today = new Date().getDay(); // 0 for Sunday, 1 for Monday, etc.
+    currentDayName.textContent = dayNames[today];
+
+    if (savedDietConfig.highCarbDay === today) {
+      currentDietType.textContent = 'Carbo Alto';
+      currentDietType.className = 'diet-type-badge high-carb';
+      carbHighMealsContainer.style.display = 'block';
+      carbLowMealsContainer.style.display = 'none';
+    } else {
+      currentDietType.textContent = 'Carbo Baixo';
+      currentDietType.className = 'diet-type-badge low-carb';
+      carbHighMealsContainer.style.display = 'none';
+      carbLowMealsContainer.style.display = 'block';
+    }
+  }
+
+  if (saveDietBtn) {
+    saveDietBtn.addEventListener('click', () => {
+      localStorage.setItem('dietConfig', JSON.stringify(savedDietConfig));
+      alert('Configuração de dieta salva!');
+    });
+  }
+
+  // Initial update on page load
+  updateCurrentDayInfo();
+}
+
+
 function setupAutoSchedule() {
-  const today = new Date().getDay();
+  const today = new Date().getDay(); // 0 for Sunday, 1 for Monday, ..., 6 for Saturday
+  // Map JS days (0-6) to your WORKOUT_DAYS (1-5)
+  // Assuming workout days are Monday to Friday (1-5 in JS Date.getDay())
   const workoutSchedule = {
-    1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: null, 0: null
+    1: 1, // Monday -> Day 1
+    2: 2, // Tuesday -> Day 2
+    3: 3, // Wednesday -> Day 3
+    4: 4, // Thursday -> Day 4
+    5: 5, // Friday -> Day 5
+    6: null, // Saturday
+    0: null  // Sunday
   };
   
-  const todayWorkout = workoutSchedule[today];
-  if (todayWorkout) {
-    document.querySelector(`.day-btn[data-day="${todayWorkout}"]`)?.classList.add('today-workout');
+  const todayWorkoutDay = workoutSchedule[today];
+  if (todayWorkoutDay) {
+    document.querySelector(`.day-btn[data-day="${todayWorkoutDay}"]`)?.classList.add('today-workout');
   }
 }
 
 // =============================================
-// INICIALIZAÇÃO
+// INICIALIZAÇÃO GERAL DA PÁGINA
 // =============================================
 function initializePage() {
-  if (!checkAuth()) return;
-  
-  setupBackButtons();
+  // Always check authentication first, unless on the login page itself
+  if (!document.body.classList.contains('login-page')) {
+    if (!checkAuth()) {
+      return; // Stop execution if not authenticated and redirected
+    }
+  }
 
-  if (document.body.classList.contains('login-page')) setupLoginPage();
-  if (document.body.classList.contains('menu-page')) setupMenuPage();
-  if (document.body.classList.contains('workout-page')) setupWorkoutPage();
-  if (document.body.classList.contains('diet-page')) setupDietPage();
+  setupBackButtons(); // Setup back buttons for all relevant pages
+
+  if (document.body.classList.contains('login-page')) {
+    setupLoginPage();
+  } else if (document.body.classList.contains('menu-page')) {
+    setupMenuPage();
+  } else if (document.body.classList.contains('workout-page')) {
+    setupWorkoutPage();
+  } else if (document.body.classList.contains('diet-page')) {
+    setupDietPage();
+  }
 }
 
+// Ensure initializePage is called when the DOM is ready
 document.addEventListener('DOMContentLoaded', initializePage);
